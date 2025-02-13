@@ -3,7 +3,7 @@ import "./product.css";
 import { FaStar } from "react-icons/fa";
 import { IoIosAddCircle, IoIosCheckmarkCircle } from "react-icons/io";
 import axios from "axios";
-import { ToastContainer, toast } from 'react-toastify';
+
 
 const Products = () => {
     const [products, setProducts] = useState([]);
@@ -42,7 +42,7 @@ const Products = () => {
             localStorage.setItem("darkMode", "disabled");
         }
     }, [darkMode]);
-    const notify = () => toast("Buyed to cart");
+    
     const handleLike = (id) => {
         setLikedProducts((prev) => ({
             ...prev,
@@ -134,7 +134,7 @@ const Products = () => {
                                     <FaStar className="rating" size={15} color="orange" />
                                 </p>
                                 <button
-                                    onClick={() => { handleLike(product.id); notify(); }}
+                                    onClick={() => { handleLike(product.id) }}
                                     className="btns"
                                 >i
                                     {likedProducts[product.id] ? "buyed" : "buy"}
@@ -143,7 +143,7 @@ const Products = () => {
                                     ) : (
                                         <IoIosAddCircle size={20} />
                                     )}
-                                    {/* <ToastContaner /> */}
+                                    
                                 </button>
                             </div>
                         </li>
